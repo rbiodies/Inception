@@ -10,6 +10,7 @@ COPY ./tools /var/www/
 
 RUN chmod +x /var/www/start.sh
 
+# предоставляет команду с аргументами для вызова во время выполнения контейнера
 ENTRYPOINT [ "/var/www/start.sh" ]
 
 CMD ["/usr/sbin/php-fpm7.3", "--nodaemonize"]

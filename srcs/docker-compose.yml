@@ -1,39 +1,10 @@
+# Файл docker-compose должен начинаться с тега версии.
+# Мы используем "3.9" так как это - самая свежая версия на момент написания
 version: '3.9'
 
-services:
-  mariadb:
-    container_name: mariadb
-    build: ./requirements/mariadb
-    restart: always
-    env_file: .env
-    volumes:
-      - db:/var/lib/mysql
-    networks:
-      - project
-
-  wordpress:
-    container_name: wordpress
-    build: ./requirements/wordpress
-    env_file: .env
-    volumes:
-      - wp:/var/www/html/wordpress
-    networks:
-      - project
-    depends_on:
-      - mariadb
-
-  nginx:
-    container_name: nginx
-    build: ./requirements/nginx
-    hostname: localhost
-    volumes:
-      - wp:/var/www/html/wordpress
-    networks:
-      - project
-    depends_on:
-      - wordpress
-    ports:
-      - "443:443"
+networks:
+  project:
+    driver: bridge
 
 volumes:
   db:
@@ -51,6 +22,57 @@ volumes:
       o: bind
       device: /home/${USER}/data/wp
 
-networks:
-  project:
-    driver: bridge
+# Следует учитывать, что docker-composes работает с сервисами.
+# 1 сервис = 1 контейнер.
+# Сервисом может быть клиент, сервер, сервер баз данных...
+# Раздел, в котором будут описаны сервисы, начинается с 'services'
+services:
+  mariadb:
+    container_name: mariadb
+    # Ключевое слово "build" позволяет задать
+    # путь к файлу Dockerfile, который нужно использовать для создания образа,
+    # который позволит запустить сервис.
+    # Здесь './requirements/mariadb' соответствует пути к папке mariadb,
+    # которая содержит соответствующий Dockerfile
+    build: ./requirements/mariadb
+    restart: always
+    env_file: .env
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - project
+
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    env_file: .env
+    volumes:
+      - wp:/var/www/html/wordpress
+    networks:
+      - project
+    # Ключевое слово 'depends_on' позволяет указывать, должен ли сервис,
+    # прежде чем запуститься, ждать, когда будут готовы к работе другие сервисы.
+    # Нам нужно, чтобы сервис 'client' дождался бы готовности к работе сервиса 'server'
+    depends_on:
+      - mariadb
+
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx
+    hostname: localhost
+    volumes:
+      - wp:/var/www/html/wordpress
+    networks:
+      - project
+    depends_on:
+      - wordpress
+    # Вспомните о том, что в качестве порта в 'nginx' указан порт 443.
+    # Если мы хотим обратиться к серверу с нашего компьютера (находясь за пределами контейнера),
+    # мы должны организовать перенаправление этого порта на порт компьютера.
+    # Сделать это нам поможет ключевое слово 'ports'.
+    # При его использовании применяется следующая конструкция: [порт компьютера]:[порт контейнера]
+    # В нашем случае нужно использовать порт компьютера 443 и организовать его связь с портом
+    # 443 контейнера (так как именно на этот порт сервер 
+    # ожидает поступления запросов).
+    ports:
+      - "443:443"

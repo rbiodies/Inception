@@ -1,28 +1,18 @@
+# задаёт базовый (родительский) образ
 FROM debian:buster
 
+# выполняет команду и создаёт слой образа. Используется для установки в контейнер пакетов
 RUN apt update
 RUN apt install -y mariadb-server
 
+# копирует в контейнер файлы и папки
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
-COPY ./tools/* /var/www/
+COPY ./tools /
 
+# указывает на необходимость открыть порт
 EXPOSE 3306
 
-RUN service mysql start && mysql < /var/www/createdb.sql && rm -f /var/www/createdb.sql
+RUN service mysql start && mysql < createdb.sql && rm -f createdb.sql
 
+# описывает команду с аргументами, которую нужно выполнить когда контейнер будет запущен
 CMD /usr/bin/mysqld_safe
-
-# FROM debian:buster
-
-# LABEL maintainer="rbiodies"
-
-# RUN apt update && \
-# 	apt install -y nginx openssl \
-# 		nano curl net-tools
-
-# COPY conf/* /etc/mysql/my.cnf;
-# # COPY tools/* /tmp/
-
-# EXPOSE 443
-
-# CMD sh -c "ls tools && sh tools/start.sh"
