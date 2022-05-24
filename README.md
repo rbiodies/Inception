@@ -9,7 +9,7 @@
 4. [Nginx, Php-Fpm и что это вообще?](https://perfect-inc.com/journal/nginx-php-fpm-i-chto-eto-voobshche/)
 5. [MariaDB](https://ru.wikipedia.org/wiki/MariaDB)
 6. [**Установка WordPress с помощью Docker Compose**](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose-ru)
-### Руководство по реализации VirualBox - Debian 10.12 (buster), Containers - alpine:latest:
+### Руководство по реализации VirualBox - Debian 10.12 (buster), Containers - debian:buster:
 1. [Как установить Debian в VirualBox. Полная пошаговая инструкция](https://poznyaev.ru/debian-v-virualbox/)
 > Скачать образ debian-10.12.0-amd64-xfce-CD-1.iso можно [здесь](https://cdimage.debian.org/cdimage/archive/10.12.0/amd64/iso-cd/debian-10.12.0-amd64-xfce-CD-1.iso)
 <details>
