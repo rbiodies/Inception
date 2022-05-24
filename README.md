@@ -66,6 +66,11 @@ sudo vim /etc/hosts
 > Имя пользователя администратора не может содержать admin/Admin или administrator/Administrator (например, admin, administrator, Administrator, admin-123, и так далее) (см. [Subject](https://cdn.intra.42.fr/pdf/pdf/47306/en.subject.pdf))
 - Создаем .dockerignore и [Dockerfile](https://github.com/rbiodies/inception/blob/main/srcs/requirements/wordpress/Dockerfile)
 12. Запустите контейнеры с помощью Makefile и зайдите на страницу WordPress в браузере своей виртуальной машины в VirtualBox по адресу своего хоста <your_login>.42.fr
+<details>
+<summary>Вывод в терминале в Visual Studio Code</summary>
+
+![](https://user-images.githubusercontent.com/90090114/169991751-afcaa773-c771-4090-8178-3bb876cd6ed2.png)
+</details>
 >Если все работает верно, то при первом входе на сайт появится предупреждение. Нажмите "Дополнительно...", затем спуститесь вниз и нажмите "Принять риск и продолжить"
 
-![VirtualBox_Debian Clone_22_05_2022_13_56_10](https://user-images.githubusercontent.com/90090114/169691800-39b420e3-759e-453b-983e-739ab1909123.png)
+![VirtualBox_Debian Clone_24_05_2022_11_44_06](https://user-images.githubusercontent.com/90090114/169989933-2ddc80dc-8636-4f09-8940-282f0fb53aa8.png)
