@@ -71,6 +71,7 @@ sudo vim /etc/hosts
 
 ![](https://user-images.githubusercontent.com/90090114/169991751-afcaa773-c771-4090-8178-3bb876cd6ed2.png)
 </details>
+
 >Если все работает верно, то при первом входе на сайт появится предупреждение. Нажмите "Дополнительно...", затем спуститесь вниз и нажмите "Принять риск и продолжить"
 
 ![VirtualBox_Debian Clone_24_05_2022_11_44_06](https://user-images.githubusercontent.com/90090114/169989933-2ddc80dc-8636-4f09-8940-282f0fb53aa8.png)
