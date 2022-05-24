@@ -35,8 +35,8 @@
 ```
 sudo vim /etc/hosts
 ```
-Далее в терминале вводим пароль администратора (root) (надеюсь, что предыдущий пункт Вы полностью выполнили) и в файле hosts меняем **localhost** на **<your_login>.42.fr**
-
+Далее в терминале вводим пароль администратора (root) и в файле hosts меняем **localhost** на **<your_login>.42.fr**
+>Надеюсь, что 3 пункт Вы выполнили полностью
 5. [Установите Docker CE и Docker Compose на Debian 11/10](https://computingforgeeks.com/install-docker-and-docker-compose-on-debian/)
 >Тестировать установку Docker Сompose пока необязательно\
 >[Советую клонировать виртуальную машину в Oracle VM VirtualBox (на случай непредвиденных ошибок)](https://ddok.ru/klonirovat-virtualnuju-mashinu-v-oracle-vm-virtualbox/)
