@@ -9,7 +9,8 @@ up:
 		@mkdir -p /home/${USER}/data/wp
 		@docker-compose -f srcs/docker-compose.yml up -d
 
-# Остановить и удалить контейнеры, сети
+# Команда docker-compose down остановит ваши контейнеры, но также удалит остановленные контейнеры, 
+# а также все созданные сети
 down:
 		@docker-compose -f srcs/docker-compose.yml down
 
@@ -17,8 +18,13 @@ down:
 ps:
 		@docker-compose -f srcs/docker-compose.yml ps
 
-clean:	down
-		@docker volume rm -f db wp
+# Команда docker-compose stop остановит ваши контейнеры, но не удалит их
+clean:
+		docker stop $(docker ps -qa)
+		docker rm $(docker ps -qa)
+		docker rmi -f $(docker images -qa)
+		docker volume rm $(docker volume ls -q)
+		docker network rm $(docker network ls -q) 2>/dev/null
 
 # Команда docker system prune — это ярлык, который удаляет образы, контейнеры и сети. 
 # Тома не удаляются по умолчанию, и вы должны указать флаг --volumes, 
@@ -26,16 +32,16 @@ clean:	down
 # Чтобы обойти подсказку, используйте флаг -f или --force
 # Если указан `-a`, также будут удалены все изображения, на которые не ссылается какой-либо контейнер
 fclean:	down
-		docker rmi -f $$(docker images -qa);\
-		docker rm -f $$(docker ps -qa);\
-		docker rm -f $$(docker ps -ls);\
-		docker volume rm $$(docker volume ls -q);\
-		docker system prune -a --volume;\
-		docker system prune -a --force;\
-		sudo rm -Rf /home/${USER}/data/db;\
-		sudo rm -Rf /home/${USER}/data/wp;\
-		mkdir /home/${USER}/data/db;\
-		mkdir /home/${USER}/data/wp;\
+		docker rmi -f $(docker images -qa)
+		docker rm -f $(docker ps -qa)
+		docker rm -f $(docker ps -ls)
+		docker volume rm $(docker volume ls -q)
+		docker system prune -a --volume
+		docker system prune -a --force
+		sudo rm -Rf /home/${USER}/data/db
+		sudo rm -Rf /home/${USER}/data/wp
+		mkdir /home/${USER}/data/db
+		mkdir /home/${USER}/data/wp
 
 # Создавайте или перестраивайте сервисы
 re:
@@ -44,4 +50,4 @@ re:
 		@docker-compose -f srcs/docker-compose.yml build
 		docker-compose -f srcs/docker-compose.yml up
 
-.PHONY:	all up down ps clean fclean re
+.PHONY:	all up down ps fclean re

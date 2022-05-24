@@ -51,5 +51,4 @@ else
 echo "Wordpress: is already set up!"
 fi
 
-# tail -f /dev/null
 /usr/sbin/php-fpm7.3 -F
