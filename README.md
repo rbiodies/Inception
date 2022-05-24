@@ -2,7 +2,7 @@
 ### Цели данного проекта:
 - Расширение знаний в области системного администрирования с помощью Docker
 - Виртуализация нескольких образов Docker на виртуальной машине
-### Теоретический материал более простым языком:
+### Теоретический материал простым языком:
 1. [A beginner’s guide to Docker — how to create your first Docker application](https://www.freecodecamp.org/news/a-beginners-guide-to-docker-how-to-create-your-first-docker-application-cc03de9b639f) 
 2. [How to Deploy MariaDB Server to a Docker Container](https://severalnines.com/blog/how-deploy-mariadb-server-docker-container)
 3. [Руководство по Docker Compose для начинающих](https://habr.com/ru/company/ruvds/blog/450312/)
