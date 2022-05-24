@@ -2,7 +2,7 @@
 ### Цели данного проекта:
 - Расширение знаний в области системного администрирования с помощью Docker
 - Виртуализация нескольких образов Docker на виртуальной машине
-### Теоретический материал более простым языком:
+### Теоретический материал простым языком:
 1. [A beginner’s guide to Docker — how to create your first Docker application](https://www.freecodecamp.org/news/a-beginners-guide-to-docker-how-to-create-your-first-docker-application-cc03de9b639f) 
 2. [How to Deploy MariaDB Server to a Docker Container](https://severalnines.com/blog/how-deploy-mariadb-server-docker-container)
 3. [Руководство по Docker Compose для начинающих](https://habr.com/ru/company/ruvds/blog/450312/)
@@ -66,11 +66,6 @@ sudo vim /etc/hosts
 > Имя пользователя администратора не может содержать admin/Admin или administrator/Administrator (например, admin, administrator, Administrator, admin-123, и так далее) (см. [Subject](https://cdn.intra.42.fr/pdf/pdf/47306/en.subject.pdf))
 - Создаем .dockerignore и [Dockerfile](https://github.com/rbiodies/inception/blob/main/srcs/requirements/wordpress/Dockerfile)
 12. Запустите контейнеры с помощью Makefile и зайдите на страницу WordPress в браузере своей виртуальной машины в VirtualBox по адресу своего хоста <your_login>.42.fr
-<details>
-<summary>Вывод в терминале в Visual Studio Code</summary>
-
-![](https://user-images.githubusercontent.com/90090114/169991751-afcaa773-c771-4090-8178-3bb876cd6ed2.png)
-</details>
 >Если все работает верно, то при первом входе на сайт появится предупреждение. Нажмите "Дополнительно...", затем спуститесь вниз и нажмите "Принять риск и продолжить"
 
 ![VirtualBox_Debian Clone_24_05_2022_11_44_06](https://user-images.githubusercontent.com/90090114/169989933-2ddc80dc-8636-4f09-8940-282f0fb53aa8.png)
