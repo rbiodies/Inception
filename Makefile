@@ -18,25 +18,17 @@ down:
 ps:
 		@docker-compose -f srcs/docker-compose.yml ps
 
-# Команда docker-compose stop остановит ваши контейнеры, но не удалит их
-clean:
-		docker stop $(docker ps -qa)
-		docker rm $(docker ps -qa)
-		docker rmi -f $(docker images -qa)
-		docker volume rm $(docker volume ls -q)
-		docker network rm $(docker network ls -q) 2>/dev/null
-
 # Команда docker system prune — это ярлык, который удаляет образы, контейнеры и сети. 
 # Тома не удаляются по умолчанию, и вы должны указать флаг --volumes, 
 # чтобы система Docker сократила количество томов. По умолчанию вам будет предложено продолжить. 
 # Чтобы обойти подсказку, используйте флаг -f или --force
 # Если указан `-a`, также будут удалены все изображения, на которые не ссылается какой-либо контейнер
 fclean:	down
-		docker rmi -f $(docker images -qa)
-		docker rm -f $(docker ps -qa)
-		docker rm -f $(docker ps -ls)
-		docker volume rm $(docker volume ls -q)
-		docker system prune -a --volume
+		@docker rmi -f $$(docker images -qa);\
+		docker rm -f $$(docker ps -qa);\
+		docker rm -f $$(docker ps -ls);\
+		docker volume rm $$(docker volume ls -q);\
+		docker system prune -a --volume;\
 		docker system prune -a --force
 		sudo rm -Rf /home/${USER}/data/db
 		sudo rm -Rf /home/${USER}/data/wp
