@@ -7,7 +7,7 @@ all:	up
 up:
 		@mkdir -p /home/${USER}/data/db
 		@mkdir -p /home/${USER}/data/wp
-		@docker-compose -f srcs/docker-compose.yml up
+		@docker-compose -f srcs/docker-compose.yml up -d
 
 # Остановить и удалить контейнеры, сети
 down:
@@ -26,22 +26,22 @@ clean:	down
 # Чтобы обойти подсказку, используйте флаг -f или --force
 # Если указан `-a`, также будут удалены все изображения, на которые не ссылается какой-либо контейнер
 fclean:	down
-		docker rmi -f $(sudo docker images -qa)
-		docker rm -f $(sudo docker ps -qa)
-		docker rm -f $(sudo docker ps -ls)
-		docker volume rm $(sudo docker volume ls -q)
-		docker system prune -a --volume
-		docker system prune -a --force
-		sudo rm -Rf /home/${USER}/data/db
-		sudo rm -Rf /home/${USER}/data/wp
-		mkdir /home/${USER}/data/db
-		mkdir /home/${USER}/data/wp
+		docker rmi -f $$(docker images -qa);\
+		docker rm -f $$(docker ps -qa);\
+		docker rm -f $$(docker ps -ls);\
+		docker volume rm $$(docker volume ls -q);\
+		docker system prune -a --volume;\
+		docker system prune -a --force;\
+		sudo rm -Rf /home/${USER}/data/db;\
+		sudo rm -Rf /home/${USER}/data/wp;\
+		mkdir /home/${USER}/data/db;\
+		mkdir /home/${USER}/data/wp;\
 
 # Создавайте или перестраивайте сервисы
 re:
 		@mkdir -p ../data/wp
 		@mkdir -p ../data/db
 		@docker-compose -f srcs/docker-compose.yml build
-		docker-compose -f srcs/docker-compose.yml up -d
+		docker-compose -f srcs/docker-compose.yml up
 
 .PHONY:	all up down ps clean fclean re
