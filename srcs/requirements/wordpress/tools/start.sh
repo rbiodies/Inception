@@ -45,7 +45,7 @@ wp core install --allow-root --url=${DOMAIN_NAME} --title=${WORDPRESS_NAME} --ad
 # Роль пользователя для создания. По умолчанию: роль по умолчанию. Возможные значения включают «администратор», «редактор», «автор», «участник», «подписчик».
 # [--user_pass=<password>]
 # Пароль пользователя. По умолчанию: генерируется случайным образом
-wp user create ${MYSQL_USER} ${WORDPRESS_USER_EMAIL} --user_pass=${MYSQL_PASSWORD} --allow-root;
+wp user create ${MYSQL_USER} ${WORDPRESS_USER_EMAIL} --user_pass=${MYSQL_PASSWORD} --role=author --allow-root;
 echo "Wordpress: set up!"
 else
 echo "Wordpress: is already set up!"
