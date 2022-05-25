@@ -1,3 +1,12 @@
+# server {
+
+# 	listen 80;
+# 	listen [::]:80;
+# 	server_name inception;
+# 	return 301 https://$host$request_uri;
+
+# }
+
 server {
 	# данный элемент просит Nginx прослушивать порт 80
     listen 443 ssl;
@@ -9,21 +18,23 @@ server {
 
     ssl_certificate_key /etc/ssl/private/nginx.key;
     ssl_certificate /etc/ssl/certs/nginx.crt;
-    ssl_protocols TLSv1.3;
+    ssl_protocols TLSv1.2 TLSv1.3;
     
 	# директива index определяет файлы, 
 	# которые будут использоваться в качестве индексов при обработке запросов к вашему серверу
-    index index.php;
+    index index.php index.html index.htm;
 	# наша директива root назначает имя корневой директории для запросов к нашему серверу. 
 	# Эта директория, /var/www/html/wordpress, 
 	# создается в качестве точки монтирования в момент сборки с помощью инструкций в Dockerfile WordPress. 
 	# Эти инструкции Dockerfile также гарантируют, что файлы релиза WordPress монтируются в этот том
     root /var/www/html/wordpress;
+	# root /var/www/html;
 
 # в этом блоке расположения мы будем использовать директиву try_files для проверки файлов, 
 # соответствующих отдельным запросам URI. Вместо того, чтобы возвращать по умолчанию статус 404 не найдено, 
 # мы будем передавать контроль файлу index.php Wordpress с аргументами запроса
     location / {
+		# autoindex on;
         try_files $uri $uri/ /index.php$is_args$args;
     }
 	# этот блок расположения будет обрабатывать PHP-запросы и проксировать эти запросы в наш контейнер wordpress. 

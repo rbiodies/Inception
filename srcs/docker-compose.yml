@@ -40,6 +40,7 @@ services:
     # Использование тома с именем таким образом позволит разделить наш код приложения с другими контейнерами
     volumes:
       - wp:/var/www/html/wordpress
+      # - wp:/var/www/html
       # мы добавляем контейнер wordpress в сеть project
     networks:
       - project
@@ -56,6 +57,7 @@ services:
     hostname: localhost
     volumes:
       - wp:/var/www/html/wordpress
+      # - wp:/var/www/html
     networks:
       - project
     depends_on:
@@ -80,20 +82,21 @@ services:
       - project
     restart: always
 
-  # ftp-server:
-  #   build: requirements/bonus/ftp-server
-  #   container_name: ftp-server
-  #   ports:
-  #     - "21:21"
-  #     - "21100-21110:21100-21110"
-  #   volumes:
-  #     - "/home/${USER}/data/website:/var/www/html/wordpress"
-  #   networks:
-  #    - project
-  #   restart: always
-  #   environment:
-  #     FTP_USR: ${FTP_USR}
-  #     FTP_PWD: ${FTP_PWD}
+  ftp-server:
+    build: requirements/bonus/ftp-server
+    container_name: ftp-server
+    ports:
+      - "21:21"
+      - "21100-21110:21100-21110"
+    volumes:
+      - wp:/var/www/html/wordpress
+      # - wp:/var/www/html
+    networks:
+     - project
+    restart: always
+    environment:
+      FTP_USR: ${FTP_USR}
+      FTP_PWD: ${FTP_PWD}
 
   portainer:
   # image указывает образ, с которого будет запускаться контейнер

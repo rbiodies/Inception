@@ -23,6 +23,14 @@ chmod +x wp-cli.phar;
 mv wp-cli.phar /usr/local/bin/wp;
 cd /var/www/html/wordpress;
 # Загружает и извлекает основные файлы WordPress по указанному пути
+
+# static website
+    mv /var/www/index.html /var/www/html/index.html
+
+#  adminer
+    wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql-en.php -O /var/www/html/adminer.php &> /dev/null
+    wget https://raw.githubusercontent.com/Niyko/Hydra-Dark-Theme-for-Adminer/master/adminer.css -O /var/www/html/adminer.css &> /dev/null
+
 wp core download --allow-root;
 mv /var/www/wp-config.php /var/www/html/wordpress;
 echo "Wordpress: creating users..."
@@ -45,14 +53,31 @@ wp core install --allow-root --url=${DOMAIN_NAME} --title=${WORDPRESS_NAME} --ad
 # <user-email>
 # Адрес электронной почты пользователя для создания.
 # [--role=<role>]
-# Роль пользователя для создания. По умолчанию: роль по умолчанию. 
+# Роль пользователя для создания. По умолчанию: роль по умолчанию
 # Возможные значения включают «администратор», «редактор», «автор», «участник», «подписчик».
 # [--user_pass=<password>]
 # Пароль пользователя. По умолчанию: генерируется случайным образом
 wp user create ${MYSQL_USER} ${WORDPRESS_USER_EMAIL} --user_pass=${MYSQL_PASSWORD} --role=author --allow-root;
+# Тема для WordPress
+wp theme install inspiro --activate --allow-root
+
+# enable redis cache
+    sed -i "40i define( 'WP_REDIS_HOST', '$REDIS_HOST' );"      wp-config.php
+    sed -i "41i define( 'WP_REDIS_PORT', 6379 );"               wp-config.php
+    #sed -i "42i define( 'WP_REDIS_PASSWORD', '$REDIS_PWD' );"   wp-config.php
+    sed -i "42i define( 'WP_REDIS_TIMEOUT', 1 );"               wp-config.php
+    sed -i "43i define( 'WP_REDIS_READ_TIMEOUT', 1 );"          wp-config.php
+    sed -i "44i define( 'WP_REDIS_DATABASE', 0 );\n"            wp-config.php
+
+    wp plugin install redis-cache --activate --allow-root
+    wp plugin update --all --allow-root
+
 echo "Wordpress: set up!"
 else
 echo "Wordpress: is already set up!"
 fi
 
+wp redis enable --allow-root
+
+echo "Wordpress started on :9000"
 /usr/sbin/php-fpm7.3 -F
