@@ -1,6 +1,7 @@
 FROM debian:buster
 
-RUN apt update && apt install redis
+RUN apt update
+RUN apt install -y redis
 
 COPY tools/configure.sh /var/www/configure.sh
 

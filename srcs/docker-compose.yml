@@ -71,6 +71,49 @@ services:
     ports:
       - "443:443"
 
+  redis:
+    build: requirements/bonus/redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - project
+    restart: always
+
+  # ftp-server:
+  #   build: requirements/bonus/ftp-server
+  #   container_name: ftp-server
+  #   ports:
+  #     - "21:21"
+  #     - "21100-21110:21100-21110"
+  #   volumes:
+  #     - "/home/${USER}/data/website:/var/www/html/wordpress"
+  #   networks:
+  #    - project
+  #   restart: always
+  #   environment:
+  #     FTP_USR: ${FTP_USR}
+  #     FTP_PWD: ${FTP_PWD}
+
+  portainer:
+  # image указывает образ, с которого будет запускаться контейнер
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    #  UI over port 9443 and expose a TCP tunnel server over port 8000
+    ports:
+      - "8000:8000"
+      - "9443:9443"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      # это сокет Unix, который демон Docker прослушивает по умолчанию, 
+      # и его можно использовать для связи с демоном из контейнера
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      # Отключить процессы-контейнеры от получения новых привилегий
+      # Это означает, что команды, повышающие привилегии, такие как suили sudo, больше не будут работать
+    security_opt:
+      - no-new-privileges:true
+    restart: always
+
 # Наш ключ верхнего уровня volumes определяет тома db и wp. 
 # Когда Docker создает тома, содержимое тома сохраняется в директории файловой системы хоста, 
 # /var/lib/docker/volumes/, а данным процессом управляет Docker. 
