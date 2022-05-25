@@ -51,7 +51,6 @@ sudo vim /etc/hosts
 >mkdir -p /home/${USER}/data/db
 >mkdir -p /home/${USER}/data/wp
 >```
->С этого пункта начинается самое интересное. Здесь придется покопаться самостоятельно. Более побдробная инструкция по выполнению этих пунктов [здесь](https://github.com/SavchenkoDV/inception_School21_Ecole42) + [Лекция по docker compose (inception)](https://www.youtube.com/watch?v=RuTp0US9IgY) + Канал ft_inception в Slack
 9. MariaDB
 - Создаем [базу данных](https://github.com/rbiodies/inception/blob/main/srcs/requirements/mariadb/tools/createdb.sql) в директории srcs/requirements/mariadb/tools
 >host_name должен быть либо %, либо Вы должны задать host_name принудительно и использовать его имя
