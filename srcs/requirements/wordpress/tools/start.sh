@@ -25,11 +25,8 @@ cd /var/www/html/wordpress;
 # Загружает и извлекает основные файлы WordPress по указанному пути
 
 # static website
-    mv /var/www/index.html /var/www/html/index.html
-
-#  adminer
-    wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql-en.php -O /var/www/html/adminer.php &> /dev/null
-    wget https://raw.githubusercontent.com/Niyko/Hydra-Dark-Theme-for-Adminer/master/adminer.css -O /var/www/html/adminer.css &> /dev/null
+	mkdir -p /var/www/html/wordpress/mysite;
+    mv /var/www/index.html /var/www/html/wordpress/mysite/index.html;
 
 wp core download --allow-root;
 mv /var/www/wp-config.php /var/www/html/wordpress;

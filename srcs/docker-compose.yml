@@ -40,7 +40,6 @@ services:
     # Использование тома с именем таким образом позволит разделить наш код приложения с другими контейнерами
     volumes:
       - wp:/var/www/html/wordpress
-      # - wp:/var/www/html
       # мы добавляем контейнер wordpress в сеть project
     networks:
       - project
@@ -57,7 +56,6 @@ services:
     hostname: localhost
     volumes:
       - wp:/var/www/html/wordpress
-      # - wp:/var/www/html
     networks:
       - project
     depends_on:
@@ -71,7 +69,8 @@ services:
     # 443 контейнера (так как именно на этот порт сервер 
     # ожидает поступления запросов).
     ports:
-      - "443:443"
+      # - "8080:80" # http
+      - "443:443" # https
 
   redis:
     build: requirements/bonus/redis
@@ -90,7 +89,6 @@ services:
       - "21100-21110:21100-21110"
     volumes:
       - wp:/var/www/html/wordpress
-      # - wp:/var/www/html
     networks:
      - project
     restart: always
@@ -116,6 +114,21 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: always
+  
+  # adminer - bring up only as needed - bypasses nginx
+  adminer:
+    # default port 8080
+    image: adminer:4
+    container_name: adminer
+    # Аналогичен always, за исключением того, что когда контейнер останавливается (вручную или иным образом), 
+    # он не перезапускается даже после перезапуска демона Docker
+    restart: unless-stopped
+    networks:
+      - project
+    depends_on:
+      - mariadb
+    ports:
+      - "9000:8080"
 
 # Наш ключ верхнего уровня volumes определяет тома db и wp. 
 # Когда Docker создает тома, содержимое тома сохраняется в директории файловой системы хоста, 
