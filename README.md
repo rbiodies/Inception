@@ -57,7 +57,7 @@ sudo vim /etc/hosts
 >host_name должен быть либо %, либо Вы должны задать host_name принудительно и использовать его имя
 - Создаем файл [50-server.cnf](https://exampleconfig.com/view/mariadb-ubuntu18-04-etc-mysql-mariadb-conf-d-50-server-cnf) в директории srcs/requirements/mariadb/conf
 - Создаем [.dockerignore](https://bitworks.software/2018-11-14-dont-ignore-dockerignore-it-is-expensive.html) и [Dockerfile](https://github.com/rbiodies/inception/blob/main/srcs/requirements/mariadb/Dockerfile) — файл Docker, который будет содержать инструкции, необходимые для создания окружения сервера
->Так как контейнер Docker работает полностью изолированно от хост-среды, то, чтобы получить доступ к среде (директориям) контейнера, необходимо в консоли ввести команду:
+>Так как контейнер Docker работает полностью изолированно от хост-среды, то, чтобы получить доступ к среде (файлам) контейнера, необходимо в консоли ввести команду:
 >```
 >docker exec -it <container_name> bash
 >```
