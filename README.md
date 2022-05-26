@@ -21,7 +21,7 @@
 ![](https://user-images.githubusercontent.com/90090114/169686068-c054eef9-8d84-4684-84d1-2f4d92a590eb.png)
 </details>
 
->Чтобы увеличить размер окна виртуальной машины на MacOS, нажмите на окно виртуальной машины, затем в меню в верхей левой части экрана основной ОС нажмите View->Virtual Screen 1->Scale to 200% (autoscaled output)
+>Чтобы увеличить размер окна виртуальной машины в MacOS, либо нажмите на окно виртуальной машины, затем в верхей левой части экрана на панели основной ОС нажмите View->Virtual Screen 1->Scale to 200% (autoscaled output), либо измените разрешение экрана в настройках виртуальной машины (возможно, появление торможения виртуальной машины)
 2. [Настройка SSH в Debian для работы в терминале в основной ОС](https://losst.ru/nastrojka-ssh-v-debian)
 >Достаточно выполнить пункт статьи "Установка SSH в Debian" и расскоментировать порт (значение порта менять необязательно)\
 >[Не забудьте пробросить порт для SSH в VirtualBox](https://comp-security.net/%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%D1%81%D1%8F-%D0%BA-%D0%B2%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9-%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B5-%D0%BF%D0%BE-ssh/)\
@@ -57,6 +57,10 @@ sudo vim /etc/hosts
 >host_name должен быть либо %, либо Вы должны задать host_name принудительно и использовать его имя
 - Создаем файл [50-server.cnf](https://exampleconfig.com/view/mariadb-ubuntu18-04-etc-mysql-mariadb-conf-d-50-server-cnf) в директории srcs/requirements/mariadb/conf
 - Создаем [.dockerignore](https://bitworks.software/2018-11-14-dont-ignore-dockerignore-it-is-expensive.html) и [Dockerfile](https://github.com/rbiodies/inception/blob/main/srcs/requirements/mariadb/Dockerfile) — файл Docker, который будет содержать инструкции, необходимые для создания окружения сервера
+>Так как контейнер Docker работает полностью изолированно от хост-среды, то, чтобы получить доступ к среде (директориям) контейнера, необходимо в консоли ввести команду:
+>```
+>docker exec -it <container_name> bash
+>```
 10. Nginx
 - Создаем [конфигурационный файл](https://github.com/rbiodies/inception/blob/main/srcs/requirements/nginx/conf/default), который описывает виртуальный хост, в директории srcs/requirements/nginx/conf
 - Пишем [скрипт](https://github.com/rbiodies/inception/blob/main/srcs/requirements/nginx/tools/start.sh) для создания самозаверяющего сертификата для сервера в директории srcs/requirements/nginx/tools
@@ -70,7 +74,7 @@ sudo vim /etc/hosts
 12. Запустите контейнеры с помощью Makefile и зайдите на страницу WordPress в браузере своей виртуальной машины в VirtualBox по адресу своего хоста <your_login>.42.fr
 >Если все работает верно, то при первом входе на сайт появится предупреждение. Нажмите "Дополнительно...", затем спуститесь вниз и нажмите "Принять риск и продолжить"
 
-![VirtualBox_Debian Clone_25_05_2022_19_24_09](https://user-images.githubusercontent.com/90090114/170312749-7676e13b-6c1c-4501-9acc-244546dbc869.png)
+![VirtualBox_Debian Clone_26_05_2022_13_56_48](https://user-images.githubusercontent.com/90090114/170475027-c35c2f83-86e6-412c-a74f-78710f77f316.png)
 ## Бонусная часть
 ### Список бонусов:
 - Настройте кеш Redis для своего веб-сайта WordPress, чтобы правильно управлять кешем.
@@ -78,3 +82,9 @@ sudo vim /etc/hosts
 - Создайте простой статический веб-сайт на выбранном вами языке, кроме PHP (да, PHP исключен!). Например, сайт-витрина или сайт для представления вашего резюме.
 - Настроить Adminer.
 - Настройте сервис по вашему выбору, который вы считаете полезным. Во время защиты вам придется обосновать свой выбор.
+### Полезные источники:
+1. [Установка Redis средствами Docker](https://www.elma-bpm.ru/KB/article-7354.html#:~:text=docker%20exec%20%2Dit%20%D0%B8%D0%BC%D1%8F_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B0_%D1%80%D0%B5%D0%B4%D0%B8%D1%81%20bash)
+2. [Настройка Redis для WordPress](https://wpgutenberg.top/nastrojka-redis-dlja-wordpress/#:~:text=redis%2Dcli-,monitor,-%D0%92%D1%8B%2C%20%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%B5%20%D0%B2%D1%81%D0%B5%D0%B3%D0%BE)
+3. [Установка и настройка Vsftpd в linux Debian с загрузкой файлов в каталог пользователя](https://chuzhoy007.ru/ustanovka-i-nastrojka-ftp-servera-vsftpd-na-linux-debian#:~:text=%D1%83%D0%B4%D0%B0%D0%BB%D0%B0%D1%81%D1%8C.%20%D0%9C%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B2%D1%8B%D0%B9%D1%82%D0%B8.-,%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20FTP%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0%20Filezilla,-%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20vsftpd%20%D0%B2)
+4. [WordPress (FPM Edition) - Docker](https://github.com/mjstealey/wordpress-nginx-docker#:~:text=similar%20to%20this.-,Adminer,-An%20Adminer%20configuration)
+5. [Установка Docker Portainer](https://losst.ru/ustanovka-docker-portainer)
