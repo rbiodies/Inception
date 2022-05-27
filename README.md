@@ -1,6 +1,6 @@
 # Inception
 ### Цели данного проекта:
-- Расширение знаний в области системного администрирования с помощью <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/docker.svg" /> Docker
+- Расширение знаний в области системного администрирования с помощью Docker
 - Виртуализация нескольких образов Docker на виртуальной машине
 ## Обязательная часть
 ### Теоретический материал простым языком:
@@ -40,7 +40,7 @@ sudo vim /etc/hosts
 ```
 Далее в терминале вводим пароль администратора (root) и в файле hosts меняем **localhost** на **<your_login>.42.fr**
 >Надеюсь, что Вы полностью выполнили 3 пункт
-5. [Установите Docker CE и Docker Compose на Debian 11/10](https://computingforgeeks.com/install-docker-and-docker-compose-on-debian/)
+5. [Установите <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/docker.svg" /> Docker CE и Docker Compose на Debian 11/10](https://computingforgeeks.com/install-docker-and-docker-compose-on-debian/)
 >Тестировать установку Docker Сompose пока необязательно\
 >[Советую клонировать виртуальную машину в Oracle VM VirtualBox (на случай непредвиденных ошибок)](https://ddok.ru/klonirovat-virtualnuju-mashinu-v-oracle-vm-virtualbox/)
 6. Создаем ожидаемую структуру каталогов, указанную в [Subject](https://cdn.intra.42.fr/pdf/pdf/47306/en.subject.pdf)
