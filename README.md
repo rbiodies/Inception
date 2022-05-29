@@ -45,7 +45,7 @@ sudo vim /etc/hosts
 >- [Советую клонировать виртуальную машину в Oracle VM VirtualBox (на случай непредвиденных ошибок)](https://ddok.ru/klonirovat-virtualnuju-mashinu-v-oracle-vm-virtualbox/)
 6. Создаем ожидаемую структуру каталогов, указанную в [Subject](https://cdn.intra.42.fr/pdf/pdf/47306/en.subject.pdf)
 7. [Создаем Makefile](https://habr.com/ru/company/ruvds/blog/450312/#:~:text=%E2%96%8D5.-,%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0,-%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%20%D1%82%D0%BE%D0%B3%D0%BE%2C%20%D0%BA%D0%B0%D0%BA)
->Сборка проекта начинается с 5 пункта
+>Сборка проекта начинается с 5 пункта статьи
 8. Создаем файл [docker-compose.yml](https://github.com/rbiodies/inception/blob/main/srcs/docker-compose.yml), который будет содержать инструкции, необходимые для запуска и настройки сервисов
 >Вручную создайте директории, указанные в docker-compose.yml->volumes->device (или пропишите их создание в Makefile). Например:
 >```
