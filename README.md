@@ -1,6 +1,6 @@
 # Inception
 ### Цели данного проекта:
-- Расширение знаний в области системного администрирования с помощью Docker
+- Расширение знаний в области системного администрирования с помощью <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/docker.svg" /> Docker
 - Виртуализация нескольких образов Docker на виртуальной машине
 ## Обязательная часть
 ### Теоретический материал простым языком:
@@ -40,7 +40,7 @@ sudo vim /etc/hosts
 ```
 Далее в терминале вводим пароль администратора (root) и в файле hosts меняем **localhost** на **<your_login>.42.fr**
 >Надеюсь, что Вы полностью выполнили 2 пункт
-5. [Установите <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/docker.svg" /> Docker CE и Docker Compose на Debian 11/10](https://computingforgeeks.com/install-docker-and-docker-compose-on-debian/)
+5. [Установите Docker CE и Docker Compose на Debian 11/10](https://computingforgeeks.com/install-docker-and-docker-compose-on-debian/)
 >- Тестировать установку Docker Сompose пока необязательно
 >- [Советую клонировать виртуальную машину в Oracle VM VirtualBox](https://ddok.ru/klonirovat-virtualnuju-mashinu-v-oracle-vm-virtualbox/) (на случай непредвиденных ошибок)
 6. Создаем ожидаемую структуру каталогов, указанную в [Subject](https://cdn.intra.42.fr/pdf/pdf/47306/en.subject.pdf)
@@ -78,13 +78,13 @@ sudo vim /etc/hosts
 >Ваша тема Wordpress может отличаться от темы, представленной на данном скриншоте
 ## Бонусная часть
 ### Список бонусов:
-- Настройте кеш Redis для своего веб-сайта WordPress, чтобы правильно управлять кешем.
+- Настройте кеш <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/redis.svg" /> Redis для своего веб-сайта WordPress, чтобы правильно управлять кешем.
 - Настройте контейнер FTP-server, указывающий на том вашего сайта WordPress.
 - Создайте простой статический веб-сайт на выбранном вами языке, кроме PHP (да, PHP исключен!). Например, сайт-витрина или сайт для представления вашего резюме.
 - Настроить Adminer.
 - Настройте сервис по вашему выбору, который вы считаете полезным. Во время защиты вам придется обосновать свой выбор.
 ### Полезные источники:
-1. [Установка <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/redis.svg" /> Redis средствами Docker](https://www.elma-bpm.ru/KB/article-7354.html#:~:text=docker%20exec%20%2Dit%20%D0%B8%D0%BC%D1%8F_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B0_%D1%80%D0%B5%D0%B4%D0%B8%D1%81%20bash)
+1. [Установка Redis средствами Docker](https://www.elma-bpm.ru/KB/article-7354.html#:~:text=docker%20exec%20%2Dit%20%D0%B8%D0%BC%D1%8F_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B0_%D1%80%D0%B5%D0%B4%D0%B8%D1%81%20bash)
 2. [Настройка Redis для WordPress](https://wpgutenberg.top/nastrojka-redis-dlja-wordpress/#:~:text=redis%2Dcli-,monitor,-%D0%92%D1%8B%2C%20%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%B5%20%D0%B2%D1%81%D0%B5%D0%B3%D0%BE)
 3. [Установка и настройка Vsftpd в linux Debian с загрузкой файлов в каталог пользователя](https://chuzhoy007.ru/ustanovka-i-nastrojka-ftp-servera-vsftpd-na-linux-debian#:~:text=%D1%83%D0%B4%D0%B0%D0%BB%D0%B0%D1%81%D1%8C.%20%D0%9C%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B2%D1%8B%D0%B9%D1%82%D0%B8.-,%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20FTP%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0%20Filezilla,-%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20vsftpd%20%D0%B2)
 4. [WordPress (FPM Edition) - Docker](https://github.com/mjstealey/wordpress-nginx-docker#:~:text=similar%20to%20this.-,Adminer,-An%20Adminer%20configuration)
