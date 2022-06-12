@@ -21,7 +21,7 @@
 ![](https://user-images.githubusercontent.com/90090114/169686068-c054eef9-8d84-4684-84d1-2f4d92a590eb.png)
 </details>
 
->Чтобы увеличить размер окна виртуальной машины в MacOS, либо нажмите на окно виртуальной машины, затем в верхей левой части экрана на панели основной ОС нажмите View->Virtual Screen 1->Scale to 200% (autoscaled output), либо измените разрешение экрана в настройках виртуальной машины (возможно, появление торможения виртуальной машины)
+>Чтобы увеличить размер окна виртуальной машины в MacOS, либо нажмите на окно виртуальной машины, затем на панели основной ОС в верхей левой части экрана нажмите View->Virtual Screen 1->Scale to 200% (autoscaled output), либо измените разрешение экрана в настройках виртуальной машины (возможно, появление торможения виртуальной машины)
 2. Устанавливаем необходимые для работы программы [Vim](https://vitux.com/how-to-install-vim-editor-on-debian/), [Make](https://ru.stackoverflow.com/questions/51452/%D0%92-linux-debian-%D0%BD%D0%B5%D1%82-%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B-make-%D0%9A%D0%B0%D0%BA-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%B0%D0%B2%D0%BB%D0%B8%D0%B2%D0%B0%D1%82%D1%8C), [Git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-debian-10)
 >- Для установки Git достаточно выполнить пункт статьи "Installing Git with Default Packages"
 >- [Включить «sudo» для учетной записи пользователя в Debian](https://milq.github.io/enable-sudo-user-account-debian/)
@@ -42,7 +42,7 @@ sudo vim /etc/hosts
 >Надеюсь, что Вы полностью выполнили 2 пункт
 5. [Установите <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/docker.svg" /> Docker CE и Docker Compose на Debian 11/10](https://computingforgeeks.com/install-docker-and-docker-compose-on-debian/)
 >- Тестировать установку Docker Сompose пока необязательно
->- [Советую клонировать виртуальную машину в Oracle VM VirtualBox (на случай непредвиденных ошибок)](https://ddok.ru/klonirovat-virtualnuju-mashinu-v-oracle-vm-virtualbox/)
+>- [Советую клонировать виртуальную машину в Oracle VM VirtualBox](https://ddok.ru/klonirovat-virtualnuju-mashinu-v-oracle-vm-virtualbox/) (на случай непредвиденных ошибок)
 6. Создаем ожидаемую структуру каталогов, указанную в [Subject](https://cdn.intra.42.fr/pdf/pdf/47306/en.subject.pdf)
 7. [Создаем Makefile](https://habr.com/ru/company/ruvds/blog/450312/#:~:text=%E2%96%8D5.-,%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0,-%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%20%D1%82%D0%BE%D0%B3%D0%BE%2C%20%D0%BA%D0%B0%D0%BA)
 >Сборка проекта начинается с 5 пункта статьи
@@ -75,6 +75,7 @@ sudo vim /etc/hosts
 >Если все работает верно, то при первом входе на сайт появится предупреждение. Нажмите "Дополнительно...", затем спуститесь вниз и нажмите "Принять риск и продолжить"
 
 ![VirtualBox_Debian Clone_26_05_2022_13_56_48](https://user-images.githubusercontent.com/90090114/170475027-c35c2f83-86e6-412c-a74f-78710f77f316.png)
+>Ваша тема Wordpress может отличаться от темы, представленной на данном скриншоте
 ## Бонусная часть
 ### Список бонусов:
 - Настройте кеш Redis для своего веб-сайта WordPress, чтобы правильно управлять кешем.
