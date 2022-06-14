@@ -43,7 +43,7 @@ sudo vim /etc/hosts
 5. [Установите <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/docker.svg" /> Docker CE и Docker Compose на Debian 11/10](https://computingforgeeks.com/install-docker-and-docker-compose-on-debian/)
 >- Тестировать установку Docker Сompose пока необязательно
 >- [Советую клонировать виртуальную машину в Oracle VM VirtualBox](https://ddok.ru/klonirovat-virtualnuju-mashinu-v-oracle-vm-virtualbox/) (на случай непредвиденных ошибок)
-6. Создаем ожидаемую структуру каталогов, указанную в [Subject](https://cdn.intra.42.fr/pdf/pdf/47306/en.subject.pdf)
+6. Создаем ожидаемую структуру каталогов, указанную в Subject
 7. [Создаем Makefile](https://habr.com/ru/company/ruvds/blog/450312/#:~:text=%E2%96%8D5.-,%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0,-%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%20%D1%82%D0%BE%D0%B3%D0%BE%2C%20%D0%BA%D0%B0%D0%BA)
 >Сборка проекта начинается с 5 пункта статьи
 8. Создаем файл [docker-compose.yml](https://github.com/rbiodies/inception/blob/main/srcs/docker-compose.yml), который будет содержать инструкции, необходимые для запуска и настройки сервисов
@@ -69,7 +69,7 @@ sudo vim /etc/hosts
 - Создаем файл директив пула [www.conf](https://gist.github.com/rvanzee/2352093), позволяющий запускать несколько «пулов» дочерних процессов и иметь разные конфигурации, в директории srcs/requirements/wordpress/conf
 - Создаем файл конфигурации [wp-config.php](https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wordpress/), который является частью всех автономных сайтов WordPress, в директории srcs/requirements/wordpress/tools
 - Создаем [скрипт](https://github.com/rbiodies/inception/blob/main/srcs/requirements/wordpress/tools/start.sh) в директории srcs/requirements/wordpress/tools. Скрипт может устанавливать интерфейс командной строки для WordPress и создавать двух пользователей, один из которых является администратором Вашей базы данных WordPress
->Имя пользователя администратора не может содержать admin/Admin или administrator/Administrator (например, admin, administrator, Administrator, admin-123, и так далее) (см. [Subject](https://cdn.intra.42.fr/pdf/pdf/47306/en.subject.pdf))
+>Имя пользователя администратора не может содержать admin/Admin или administrator/Administrator (например, admin, administrator, Administrator, admin-123, и так далее) (см. Subject)
 - Создаем .dockerignore и Dockerfile. В Dockerfile задаем базовый (родительский) образ, прописываем выполнение команд для установки пакетов php7.3, php-mysqli, php-fpm, curl и sendmail с флагом -y в контейнер, указываем на необходимость открыть порт 9000, прописываем копирование конфигурационного файла [www.conf](https://gist.github.com/rvanzee/2352093) в директорию /etc/php/7.3/fpm/pool.d и скрипта в любую директорию (например, /var/www/) и описываем команду bash со скриптом в качестве аргумента, которую нужно выполнить, когда контейнер будет запущен
 12. Запустите контейнеры с помощью Makefile и зайдите на страницу WordPress в браузере своей виртуальной машины в VirtualBox по адресу своего хоста <your_login>.42.fr
 >Если все работает верно, то при первом входе на сайт появится предупреждение. Нажмите "Дополнительно...", затем спуститесь вниз и нажмите "Принять риск и продолжить"
