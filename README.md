@@ -22,8 +22,8 @@
 </details>
 
 >Чтобы увеличить размер окна виртуальной машины в MacOS, либо нажмите на окно виртуальной машины, затем на панели основной ОС в верхей левой части экрана нажмите View->Virtual Screen 1->Scale to 200% (autoscaled output), либо измените разрешение экрана в настройках виртуальной машины (возможно, появление торможения виртуальной машины)
-2. Устанавливаем необходимые для работы программы [Vim](https://vitux.com/how-to-install-vim-editor-on-debian/), [Make](https://ru.stackoverflow.com/questions/51452/%D0%92-linux-debian-%D0%BD%D0%B5%D1%82-%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B-make-%D0%9A%D0%B0%D0%BA-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%B0%D0%B2%D0%BB%D0%B8%D0%B2%D0%B0%D1%82%D1%8C), [Git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-debian-10)
->- Для установки Git достаточно выполнить пункт статьи "Installing Git with Default Packages"
+2. Устанавливаем необходимые для работы программы <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/vim.svg" /> [Vim](https://vitux.com/how-to-install-vim-editor-on-debian/), [Make](https://ru.stackoverflow.com/questions/51452/%D0%92-linux-debian-%D0%BD%D0%B5%D1%82-%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B-make-%D0%9A%D0%B0%D0%BA-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%B0%D0%B2%D0%BB%D0%B8%D0%B2%D0%B0%D1%82%D1%8C), [Git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-debian-10)
+>- Для установки <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/git.svg" /> Git достаточно выполнить пункт статьи "Installing Git with Default Packages"
 >- [Включить «sudo» для учетной записи пользователя в Debian](https://milq.github.io/enable-sudo-user-account-debian/)
 3. [Настройка SSH в Debian для работы в терминале в основной ОС](https://losst.ru/nastrojka-ssh-v-debian)
 >- Достаточно выполнить пункт статьи "Установка SSH в Debian" и расскоментировать порт (значение порта менять необязательно)
