@@ -26,7 +26,7 @@
 >- Для установки <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/git.svg" /> Git достаточно выполнить пункт статьи "Installing Git with Default Packages"
 >- [Включить «sudo» для учетной записи пользователя в Debian](https://milq.github.io/enable-sudo-user-account-debian/)
 3. [Настройка SSH в Debian для работы в терминале в основной ОС](https://losst.ru/nastrojka-ssh-v-debian)
->- Достаточно выполнить пункт статьи "Установка SSH в Debian" и расскоментировать порт (значение порта менять необязательно)
+>- Достаточно выполнить пункты статьи "Установка SSH в Debian" и "Настройка сервера SSH" (значение порта менять необязательно)
 >- [Не забудьте пробросить порт для SSH в VirtualBox](https://comp-security.net/%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%D1%81%D1%8F-%D0%BA-%D0%B2%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9-%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B5-%D0%BF%D0%BE-ssh/)
 >>Поле "Адрес гостя" можно оставить пустым
 >- При возникновении ошибки "Такое подключение уже существует", удалите файл known_hosts в директории /Users/$USER/.ssh:
