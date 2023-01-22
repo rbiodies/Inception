@@ -1,9 +1,9 @@
 # Inception
-### Цели данного проекта:
+Цели данного проекта:
 - Расширение знаний в области системного администрирования с помощью Docker
 - Виртуализация нескольких образов Docker на виртуальной машине
 ## Обязательная часть
-### Теоретический материал простым языком:
+## Теоретический материал простым языком
 1. [A beginner’s guide to Docker — how to create your first Docker application](https://www.freecodecamp.org/news/a-beginners-guide-to-docker-how-to-create-your-first-docker-application-cc03de9b639f) 
 2. [How to Deploy MariaDB Server to a Docker Container](https://severalnines.com/blog/how-deploy-mariadb-server-docker-container)
 3. [Руководство по Docker Compose для начинающих](https://habr.com/ru/company/ruvds/blog/450312/)
@@ -12,7 +12,7 @@
 6. [**Установка WordPress с помощью Docker Compose**](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose-ru)
 7. [Running MariaDB in a Docker Container](https://quebit.com/askquebit/quebit-products/running-mariadb-in-a-docker-container/#:~:text=Now%20that%20my,the%20bash%20shell%3A)
 >Последняя статья пригодится во время сдачи проекта при проверке базы данных (см. [Checklist](https://github.com/mharriso/school21-checklists/blob/master/ng_3_inception.pdf))
-### Руководство по реализации <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/virtualbox.svg" /> VirualBox - <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/debian.svg" /> Debian 10.12 (buster), <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/linuxcontainers.svg" /> Containers - debian:buster:
+## Руководство по реализации <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/virtualbox.svg" /> VirualBox - <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/debian.svg" /> Debian 10.12 (buster), <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/linuxcontainers.svg" /> Containers - debian:buster
 1. [Как установить Debian в VirualBox. Полная пошаговая инструкция](https://poznyaev.ru/debian-v-virualbox/)
 >Скачать образ debian-10.12.0-amd64-xfce-CD-1.iso можно [здесь](https://cdimage.debian.org/cdimage/archive/10.12.0/amd64/iso-cd/debian-10.12.0-amd64-xfce-CD-1.iso)
 <details>
@@ -77,13 +77,13 @@ sudo vim /etc/hosts
 ![VirtualBox_Debian Clone_26_05_2022_13_56_48](https://user-images.githubusercontent.com/90090114/170475027-c35c2f83-86e6-412c-a74f-78710f77f316.png)
 >Ваша тема WordPress может отличаться от темы, представленной на данном скриншоте
 ## Бонусная часть
-### Список бонусов:
+Список бонусов:
 - Настройте кеш Redis для своего веб-сайта WordPress, чтобы правильно управлять кешем.
 - Настройте контейнер FTP-сервер, указывающий на том вашего сайта WordPress.
 - Создайте простой статический веб-сайт на выбранном вами языке, кроме PHP (да, PHP исключен!). Например, сайт-витрина или сайт для представления вашего резюме.
 - Настроить Adminer.
 - Настройте сервис по вашему выбору, который вы считаете полезным. Во время защиты вам придется обосновать свой выбор.
-### Полезные источники:
+## Полезные источники
 1. [Установка <img height="20" width="20" src="https://unpkg.com/simple-icons@v6/icons/redis.svg" /> Redis средствами Docker](https://www.elma-bpm.ru/KB/article-7354.html#:~:text=docker%20exec%20%2Dit%20%D0%B8%D0%BC%D1%8F_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B0_%D1%80%D0%B5%D0%B4%D0%B8%D1%81%20bash)
 2. [Настройка Redis для WordPress](https://wpgutenberg.top/nastrojka-redis-dlja-wordpress/#:~:text=redis%2Dcli-,monitor,-%D0%92%D1%8B%2C%20%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%B5%20%D0%B2%D1%81%D0%B5%D0%B3%D0%BE)
 3. [Установка и настройка Vsftpd в linux Debian с загрузкой файлов в каталог пользователя](https://chuzhoy007.ru/ustanovka-i-nastrojka-ftp-servera-vsftpd-na-linux-debian#:~:text=%D1%83%D0%B4%D0%B0%D0%BB%D0%B0%D1%81%D1%8C.%20%D0%9C%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B2%D1%8B%D0%B9%D1%82%D0%B8.-,%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20FTP%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0%20Filezilla,-%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20vsftpd%20%D0%B2)
