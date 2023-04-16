@@ -1,4 +1,4 @@
-# Inception
+# <img height="32" width="32" src="https://unpkg.com/simple-icons@v6/icons/docker.svg" /> Inception
 Цели данного проекта:
 - Расширение знаний в области системного администрирования с помощью Docker
 - Виртуализация нескольких образов Docker на виртуальной машине
